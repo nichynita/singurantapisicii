@@ -1,9 +1,1100 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>
-            sigurantapisicii.ro | ia neamule "palsa"!
-        </title>
-    </head>
-    <h1>aici e domeniul pisicilor! meow moew! </h1>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Siguranța Pisicii - Plase de Protecție pentru Ferestre</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        header.scrolled {
+            background: rgba(102, 126, 234, 0.95);
+            backdrop-filter: blur(15px);
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        .logo i {
+            margin-right: 0.5rem;
+            font-size: 2rem;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-menu a:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Floating cats animation */
+        .floating-cats {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .floating-cat {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.3;
+            animation: float 15s infinite linear;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .floating-cat:nth-child(1) {
+            left: 10%;
+            animation-delay: 0s;
+            font-size: 1.5rem;
+        }
+
+        .floating-cat:nth-child(2) {
+            left: 20%;
+            animation-delay: -3s;
+            font-size: 2.5rem;
+        }
+
+        .floating-cat:nth-child(3) {
+            left: 30%;
+            animation-delay: -6s;
+            font-size: 1.8rem;
+        }
+
+        .floating-cat:nth-child(4) {
+            left: 50%;
+            animation-delay: -9s;
+            font-size: 2.2rem;
+        }
+
+        .floating-cat:nth-child(5) {
+            left: 70%;
+            animation-delay: -12s;
+            font-size: 1.6rem;
+        }
+
+        .floating-cat:nth-child(6) {
+            left: 85%;
+            animation-delay: -15s;
+            font-size: 2rem;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.3;
+            }
+            90% {
+                opacity: 0.3;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 1rem 2.5rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(238, 90, 36, 0.4);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(238, 90, 36, 0.6);
+        }
+
+        /* Sections */
+        section {
+            padding: 5rem 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #333;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #f8f9ff 0%, #e6f3ff 100%);
+            padding: 8rem 2rem;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            margin-bottom: 4rem;
+        }
+
+        .about-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+        }
+
+        .about-text h3 {
+            color: #667eea;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-image {
+            position: relative;
+            text-align: center;
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.2);
+            overflow: hidden;
+            border: 3px solid #f0f4ff;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg, transparent, rgba(102, 126, 234, 0.1), transparent);
+            animation: rotate 8s linear infinite;
+            z-index: 0;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .about-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #666;
+        }
+
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+            border-color: #667eea;
+        }
+
+        .product-icon {
+            font-size: 4rem;
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .product-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+
+        .product-card p {
+            margin-bottom: 1.5rem;
+            color: #666;
+        }
+
+        .price {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #ee5a24;
+            margin-bottom: 1rem;
+        }
+
+        .buy-button {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .buy-button:hover {
+            background: #5a67d8;
+            transform: scale(1.05);
+        }
+
+        /* Features Section */
+        .features {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .feature i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #ffd700;
+        }
+
+        .feature h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #f8f9ff;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #333;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .contact-item i {
+            font-size: 2rem;
+            color: #667eea;
+        }
+
+        /* Footer */
+        footer {
+            background: #2d3748;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+                position: relative;
+                z-index: 1001;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100vh;
+                background: rgba(102, 126, 234, 0.98);
+                backdrop-filter: blur(10px);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 2rem;
+                transform: translateX(-100%);
+                transition: transform 0.3s ease;
+                z-index: 1000;
+            }
+
+            .nav-menu.active {
+                transform: translateX(0);
+            }
+
+            .nav-menu li {
+                margin: 1rem 0;
+            }
+
+            .nav-menu a {
+                font-size: 1.2rem;
+                padding: 1rem 2rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .about-image {
+                order: -1;
+            }
+
+            .about-image img {
+                height: 200px;
+            }
+
+            .about-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+        }
+
+        /* Cart */
+        .cart {
+            position: fixed;
+            top: 100px;
+            right: -300px;
+            width: 300px;
+            height: calc(100vh - 100px);
+            background: white;
+            box-shadow: -5px 0 15px rgba(0,0,0,0.1);
+            transition: right 0.3s ease;
+            z-index: 999;
+            padding: 1rem;
+        }
+
+        .cart.active {
+            right: 0;
+        }
+
+        .cart-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-items {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .cart-item {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .cart-total {
+            padding: 1rem;
+            background: #f8f9ff;
+            margin-top: auto;
+        }
+
+        .cart-icon {
+            position: fixed;
+            top: 120px;
+            right: 20px;
+            background: #667eea;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            z-index: 1000;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #ee5a24;
+            color: white;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            font-size: 0.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header id="header">
+        <nav>
+            <a href="#" class="logo">
+                <i class="fas fa-cat"></i>
+                Siguranța Pisicii
+            </a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home">Acasă</a></li>
+                <li><a href="#about">Despre</a></li>
+                <li><a href="#products">Produse</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="menu-toggle" id="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Cart Icon -->
+    <button class="cart-icon" id="cart-toggle">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count" id="cart-count">0</span>
+    </button>
+
+    <!-- Cart -->
+    <div class="cart" id="cart">
+        <div class="cart-header">
+            <h3>Coșul meu</h3>
+            <button id="close-cart" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <p style="text-align: center; color: #666; margin-top: 2rem;">Coșul este gol</p>
+        </div>
+        <div class="cart-total">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                <strong>Total: <span id="cart-total">0 RON</span></strong>
+            </div>
+            <button class="cta-button" style="width: 100%; text-align: center;">Finalizează Comanda</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <!-- Floating cats animation -->
+        <div class="floating-cats">
+            <div class="floating-cat">🐱</div>
+            <div class="floating-cat">😺</div>
+            <div class="floating-cat">😸</div>
+            <div class="floating-cat">😻</div>
+            <div class="floating-cat">🙀</div>
+            <div class="floating-cat">😽</div>
+        </div>
+        
+        <div class="hero-content">
+            <h1>Siguranța Pisicii Tale - Prioritatea Noastră</h1>
+            <p>Plase de protecție premium pentru ferestre - liniște și siguranță pentru tine și familia ta blănoasă</p>
+            <a href="#products" class="cta-button">Descoperă Produsele</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="animate-on-scroll">De ce Siguranța Pisicii?</h2>
+            <div class="about-content">
+                <div class="about-text animate-on-scroll">
+                    <h3>Pasiunea noastră pentru siguranța pisicilor</h3>
+                    <p>La Siguranța Pisicii, înțelegem că pisicile tale sunt familia ta. De aceea oferim cele mai sigure și durabile plase de protecție pentru ferestre, special proiectate pentru a preveni accidentele și a-ți menține pisicile în siguranță.</p>
+                    <p>Cu peste 5 ani de experiență în domeniu, am dezvoltat soluții inovatoare care combină siguranța maximă cu estetica plăcută, astfel încât să nu compromitem designul casei tale.</p>
+                    <p>Toate plasele noastre sunt testate riguros și vin cu garanție extinsă, pentru liniștea ta completă. Echipa noastră de specialiști lucrează constant pentru a îmbunătăți produsele și a oferi cele mai bune soluții pentru protejarea animalelor de companie.</p>
+                </div>
+                <div class="about-image animate-on-scroll">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='window' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23e3f2fd'/%3E%3Cstop offset='100%25' stop-color='%23f8f9fa'/%3E%3C/linearGradient%3E%3ClinearGradient id='cat' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ff8a65'/%3E%3Cstop offset='100%25' stop-color='%23ff7043'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='300' fill='url(%23window)'/%3E%3C!-- Room interior --%3E%3Crect x='0' y='200' width='400' height='100' fill='%23f5f5f5'/%3E%3Crect x='30' y='40' width='340' height='160' fill='%23ffffff' stroke='%23ddd' stroke-width='2' rx='8'/%3E%3C!-- Window frame --%3E%3Crect x='40' y='50' width='320' height='140' fill='rgba(135,206,235,0.3)' rx='5'/%3E%3Cline x1='200' y1='50' x2='200' y2='190' stroke='%23ddd' stroke-width='2'/%3E%3Cline x1='40' y1='120' x2='360' y2='120' stroke='%23ddd' stroke-width='2'/%3E%3C!-- Safety net (subtle) --%3E%3Cg opacity='0.4'%3E%3Cdefs%3E%3Cpattern id='net' x='0' y='0' width='15' height='15' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0,0 L15,0 M0,0 L0,15' stroke='%23667eea' stroke-width='0.5' fill='none'/%3E%3C/pattern%3E%3C/defs%3E%3Crect x='45' y='55' width='310' height='130' fill='url(%23net)'/%3E%3C/g%3E%3C!-- Happy cat inside --%3E%3Cg transform='translate(120,140)'%3E%3C!-- Cat body --%3E%3Cellipse cx='0' cy='10' rx='20' ry='15' fill='url(%23cat)'/%3E%3C!-- Cat head --%3E%3Ccircle cx='0' cy='-5' r='12' fill='url(%23cat)'/%3E%3C!-- Ears --%3E%3Cpath d='M-8,-12 L-12,-20 L-4,-16 Z' fill='url(%23cat)'/%3E%3Cpath d='M8,-12 L12,-20 L4,-16 Z' fill='url(%23cat)'/%3E%3Cpath d='M-8,-15 L-6,-17 L-6,-14 Z' fill='%23ffab91'/%3E%3Cpath d='M8,-15 L6,-17 L6,-14 Z' fill='%23ffab91'/%3E%3C!-- Eyes (happy) --%3E%3Cpath d='M-5,-8 Q-3,-6 -1,-8' stroke='%23333' stroke-width='2' fill='none'/%3E%3Cpath d='M5,-8 Q3,-6 1,-8' stroke='%23333' stroke-width='2' fill='none'/%3E%3C!-- Nose --%3E%3Cpath d='M-1,-3 L0,-1 L1,-3 Q0,-4 -1,-3' fill='%23ff5722'/%3E%3C!-- Mouth (happy) --%3E%3Cpath d='M0,0 Q-3,3 -6,2 M0,0 Q3,3 6,2' stroke='%23333' stroke-width='1.5' fill='none'/%3E%3C!-- Tail --%3E%3Cpath d='M15,5 Q25,0 30,10 Q28,15 25,12' stroke='url(%23cat)' stroke-width='4' fill='none'/%3E%3C/g%3E%3C!-- Decorative plants on windowsill --%3E%3Cg transform='translate(60,180)'%3E%3Crect x='0' y='0' width='15' height='12' fill='%238d6e63' rx='2'/%3E%3Cellipse cx='7' cy='-5' rx='6' ry='8' fill='%2366bb6a'/%3E%3Cellipse cx='4' cy='-8' rx='3' ry='5' fill='%234caf50'/%3E%3Cellipse cx='10' cy='-7' rx='3' ry='6' fill='%234caf50'/%3E%3C/g%3E%3Cg transform='translate(320,185)'%3E%3Crect x='0' y='0' width='12' height='10' fill='%238d6e63' rx='2'/%3E%3Cellipse cx='6' cy='-4' rx='5' ry='7' fill='%2366bb6a'/%3E%3Cellipse cx='3' cy='-7' rx='2' ry='4' fill='%234caf50'/%3E%3Cellipse cx='9' cy='-6' rx='2' ry='5' fill='%234caf50'/%3E%3C/g%3E%3C!-- Safety checkmark --%3E%3Ccircle cx='320' cy='80' r='15' fill='%2327ae60'/%3E%3Cpath d='M313,80 L318,85 L327,76' stroke='white' stroke-width='3' fill='none'/%3E%3C/svg%3E" alt="Pisică fericită și în siguranță la fereastră cu plasă de protecție">
+                </div>
+            </div>
+
+            <!-- Statistics -->
+            <div class="about-stats animate-on-scroll">
+                <div class="stat-card">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Pisici Protejate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Familii Mulțumite</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Ani Experiență</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">99%</div>
+                    <div class="stat-label">Satisfacție Clienți</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="animate-on-scroll">Produsele Noastre</h2>
+            <div class="products-grid">
+                <div class="product-card animate-on-scroll" data-product='{"name": "Plasă Standard", "price": 89, "id": "standard"}'>
+                    <div class="product-icon">
+                        <i class="fas fa-window-maximize"></i>
+                    </div>
+                    <h3>Plasă Standard</h3>
+                    <p>Plasă rezistentă din fibră de sticlă, perfectă pentru ferestre obișnuite. Instalare simplă, durabilitate garantată.</p>
+                    <div class="price">89 RON</div>
+                    <button class="buy-button" onclick="addToCart('standard', 'Plasă Standard', 89)">Adaugă în Coș</button>
+                </div>
+
+                <div class="product-card animate-on-scroll" data-product='{"name": "Plasă Premium", "price": 149, "id": "premium"}'>
+                    <div class="product-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3>Plasă Premium</h3>
+                    <p>Plasă ultra-rezistentă cu tehnologie anti-zgâriere și UV-rezistentă. Ideală pentru pisici mai active.</p>
+                    <div class="price">149 RON</div>
+                    <button class="buy-button" onclick="addToCart('premium', 'Plasă Premium', 149)">Adaugă în Coș</button>
+                </div>
+
+                <div class="product-card animate-on-scroll" data-product='{"name": "Plasă Invizibilă", "price": 199, "id": "invisible"}'>
+                    <div class="product-icon">
+                        <i class="fas fa-eye-slash"></i>
+                    </div>
+                    <h3>Plasă Invizibilă</h3>
+                    <p>Tehnologie de vârf cu material ultra-fin, aproape invizibil. Protecție maximă fără a afecta vederea.</p>
+                    <div class="price">199 RON</div>
+                    <button class="buy-button" onclick="addToCart('invisible', 'Plasă Invizibilă', 199)">Adaugă în Coș</button>
+                </div>
+
+                <div class="product-card animate-on-scroll" data-product='{"name": "Kit Instalare", "price": 45, "id": "kit"}'>
+                    <div class="product-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Kit de Instalare</h3>
+                    <p>Set complet cu toate uneltele și accesoriile necesare pentru montajul profesional al plasei.</p>
+                    <div class="price">45 RON</div>
+                    <button class="buy-button" onclick="addToCart('kit', 'Kit Instalare', 45)">Adaugă în Coș</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2 class="animate-on-scroll">De Ce Ne Alegi Pe Noi?</h2>
+            <div class="features-grid">
+                <div class="feature animate-on-scroll">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Siguranță Garantată</h3>
+                    <p>Materiale premium testate pentru rezistență maximă</p>
+                </div>
+                <div class="feature animate-on-scroll">
+                    <i class="fas fa-truck-fast"></i>
+                    <h3>Livrare Rapidă</h3>
+                    <p>Livrare în 24-48h în toată România</p>
+                </div>
+                <div class="feature animate-on-scroll">
+                    <i class="fas fa-wrench"></i>
+                    <h3>Instalare Gratuită</h3>
+                    <p>Echipa noastră vine și montează gratuit</p>
+                </div>
+                <div class="feature animate-on-scroll">
+                    <i class="fas fa-medal"></i>
+                    <h3>Garanție 3 Ani</h3>
+                    <p>Garanție extinsă pentru toate produsele</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="animate-on-scroll">Contactează-ne</h2>
+            <div class="contact-content">
+                <form class="contact-form animate-on-scroll" id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Numele tău</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Telefon</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mesajul tău</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="cta-button" style="width: 100%;">Trimite Mesajul</button>
+                </form>
+                
+                <div class="contact-info animate-on-scroll">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Telefon</h4>
+                            <p>0721 123 456</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>contact@sigurantapisicii.ro</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Adresa</h4>
+                            <p>Str. Protecției nr. 15<br>Bucuresti, România</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Program</h4>
+                            <p>Lun-Vin: 9:00-18:00<br>Sâm: 10:00-14:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Siguranța Pisicii. Toate drepturile rezervate.</p>
+            <p>Protejăm pisicile cu dragoste și profesionalism din 2019</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const header = document.getElementById('header');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Cart functionality
+        let cart = [];
+        const cartToggle = document.getElementById('cart-toggle');
+        const cartElement = document.getElementById('cart');
+        const closeCart = document.getElementById('close-cart');
+        const cartItems = document.getElementById('cart-items');
+        const cartCount = document.getElementById('cart-count');
+        const cartTotal = document.getElementById('cart-total');
+
+        cartToggle.addEventListener('click', () => {
+            cartElement.classList.add('active');
+        });
+
+        closeCart.addEventListener('click', () => {
+            cartElement.classList.remove('active');
+        });
+
+        function addToCart(id, name, price) {
+            const existingItem = cart.find(item => item.id === id);
+            
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({ id, name, price, quantity: 1 });
+            }
+            
+            updateCart();
+            showAddToCartAnimation();
+        }
+
+        function removeFromCart(id) {
+            cart = cart.filter(item => item.id !== id);
+            updateCart();
+        }
+
+        function updateCart() {
+            cartItems.innerHTML = '';
+            let total = 0;
+            let itemCount = 0;
+
+            if (cart.length === 0) {
+                cartItems.innerHTML = '<p style="text-align: center; color: #666; margin-top: 2rem;">Coșul este gol</p>';
+            } else {
+                cart.forEach(item => {
+                    total += item.price * item.quantity;
+                    itemCount += item.quantity;
+
+                    const cartItem = document.createElement('div');
+                    cartItem.className = 'cart-item';
+                    cartItem.innerHTML = `
+                        <div style="display: flex; justify-content: space-between; align-items: center;">
+                            <div>
+                                <h4>${item.name}</h4>
+                                <p>${item.price} RON x ${item.quantity}</p>
+                            </div>
+                            <button onclick="removeFromCart('${item.id}')" style="background: #ff6b6b; color: white; border: none; padding: 0.5rem; border-radius: 5px; cursor: pointer;">
+                                <i class="fas fa-trash"></i>
+                            </button>
+                        </div>
+                    `;
+                    cartItems.appendChild(cartItem);
+                });
+            }
+
+            cartCount.textContent = itemCount;
+            cartTotal.textContent = total + ' RON';
+
+            if (itemCount > 0) {
+                cartCount.style.display = 'flex';
+            } else {
+                cartCount.style.display = 'none';
+            }
+        }
+
+        function showAddToCartAnimation() {
+            const button = event.target;
+            const originalText = button.textContent;
+            
+            button.textContent = 'Adăugat!';
+            button.style.background = '#27ae60';
+            
+            setTimeout(() => {
+                button.textContent = originalText;
+                button.style.background = '';
+            }, 1500);
+        }
+
+        // Contact form
+        const contactForm = document.getElementById('contact-form');
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Simulate form submission
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            
+            submitButton.textContent = 'Se trimite...';
+            submitButton.disabled = true;
+            
+            setTimeout(() => {
+                submitButton.textContent = 'Mesaj trimis!';
+                submitButton.style.background = '#27ae60';
+                
+                setTimeout(() => {
+                    submitButton.textContent = originalText;
+                    submitButton.style.background = '';
+                    submitButton.disabled = false;
+                    contactForm.reset();
+                }, 2000);
+            }, 1500);
+        });
+
+        // Close cart when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!cartElement.contains(e.target) && !cartToggle.contains(e.target)) {
+                cartElement.classList.remove('active');
+            }
+            
+            // Close mobile menu when clicking outside
+            if (!navMenu.contains(e.target) && !menuToggle.contains(e.target)) {
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Initialize cart display
+        updateCart();
+
+        // Add padding top for fixed header
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                const id = section.getAttribute('id');
+                if (id && id !== 'home') {
+                    section.style.paddingTop = '100px';
+                    section.style.marginTop = '-100px';
+                }
+            });
+        });
+    </script>
+</body>
 </html>
