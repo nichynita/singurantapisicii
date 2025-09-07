@@ -1,630 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<head>
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="UTF-8"><title>Siguranta Pisicii - Plase de Protectie pentru Ferestre</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            overflow-x: hidden;
-            background: linear-gradient(135deg, 
-                #a8d8ea 0%, 
-                #b3e5d1 25%, 
-                #dcedc1 50%, 
-                #c5e4ff 75%, 
-                #a8d8ea 100%);
-            background-attachment: fixed;
-            min-height: 100vh;
-        }
-
-        /* Header */
-        header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(15px);
-            border-bottom: 2px solid rgba(168, 216, 234, 0.3);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        nav {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            font-size: 1.8rem;
-            font-weight: bold;
-            text-decoration: none;
-            color: #2c3e50;
-        }
-
-        .logo i {
-            margin-right: 0.5rem;
-            font-size: 2rem;
-            color: #ff8c42;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
-        }
-
-        .nav-menu a {
-            color: #2c3e50;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            padding: 0.8rem 1.5rem;
-            border-radius: 25px;
-            font-weight: 500;
-            position: relative;
-        }
-
-        .nav-menu a:hover {
-            background: rgba(255, 140, 66, 0.1);
-            color: #ff8c42;
-            transform: translateY(-2px);
-        }
-
-        .menu-toggle {
-            display: none;
-            background: none;
-            border: none;
-            color: #2c3e50;
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 1001;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #2c3e50;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .floating-cats {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .floating-cat {
-            position: absolute;
-            font-size: 2rem;
-            opacity: 0.2;
-            animation: float 20s infinite linear;
-            color: #ff8c42;
-        }
-
-        .floating-cat:nth-child(1) {
-            left: 10%;
-            animation-delay: 0s;
-            font-size: 1.5rem;
-        }
-
-        .floating-cat:nth-child(2) {
-            left: 20%;
-            animation-delay: -4s;
-            font-size: 2.5rem;
-        }
-
-        .floating-cat:nth-child(3) {
-            left: 35%;
-            animation-delay: -8s;
-            font-size: 1.8rem;
-        }
-
-        .floating-cat:nth-child(4) {
-            left: 55%;
-            animation-delay: -12s;
-            font-size: 2.2rem;
-        }
-
-        .floating-cat:nth-child(5) {
-            left: 75%;
-            animation-delay: -16s;
-            font-size: 1.6rem;
-        }
-
-        .floating-cat:nth-child(6) {
-            left: 90%;
-            animation-delay: -20s;
-            font-size: 2rem;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.2;
-            }
-            90% {
-                opacity: 0.2;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 900px;
-            padding: 2rem;
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            color: #2c3e50;
-            text-shadow: none;
-        }
-
-        .hero-description {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            color: #34495e;
-        }
-
-        .hero-features {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .hero-feature {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.5rem 1rem;
-            background: rgba(168, 216, 234, 0.2);
-            border-radius: 15px;
-            font-size: 1rem;
-        }
-
-        .hero-feature i {
-            color: #ff8c42;
-            font-size: 1.2rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(135deg, #ff8c42, #ff6b35);
-            color: white;
-            padding: 1.2rem 3rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 25px rgba(255, 140, 66, 0.4);
-            border: none;
-            cursor: pointer;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 35px rgba(255, 140, 66, 0.6);
-        }
-
-        /* Sections */
-        section {
-            padding: 6rem 2rem;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        h2 {
-            text-align: center;
-            font-size: 2.8rem;
-            margin-bottom: 3rem;
-            color: #2c3e50;
-        }
-
-        /* Products Section */
-        .products {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            margin-top: 2rem;
-        }
-
-        .product-card {
-            background: white;
-            border-radius: 20px;
-            padding: 2.5rem;
-            text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .product-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background: linear-gradient(135deg, #ff8c42, #ff6b35);
-        }
-
-        .product-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
-            border-color: #ff8c42;
-        }
-
-        .product-icon {
-            font-size: 4rem;
-            color: #ff8c42;
-            margin-bottom: 1.5rem;
-        }
-
-        .product-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1rem;
-            color: #2c3e50;
-        }
-
-        .product-card .price {
-            font-size: 2.2rem;
-            font-weight: bold;
-            color: #ff8c42;
-            margin-bottom: 1.5rem;
-        }
-
-        .product-features {
-            text-align: left;
-            margin: 1.5rem 0;
-        }
-
-        .product-features li {
-            margin: 0.8rem 0;
-            display: flex;
-            align-items: center;
-            color: #34495e;
-        }
-
-        .product-features li i {
-            color: #27ae60;
-            margin-right: 0.8rem;
-            width: 20px;
-        }
-
-        .payment-info {
-            background: rgba(168, 216, 234, 0.1);
-            border-radius: 10px;
-            padding: 1.5rem;
-            margin: 1.5rem 0;
-            border-left: 4px solid #ff8c42;
-        }
-
-        .payment-info h4 {
-            color: #2c3e50;
-            margin-bottom: 0.8rem;
-        }
-
-        .payment-info ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .payment-info li {
-            margin: 0.5rem 0;
-            color: #34495e;
-        }
-
-        /* About Section */
-        .about {
-            background: rgba(255, 255, 255, 0.6);
-            backdrop-filter: blur(10px);
-        }
-
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .about-text h3 {
-            color: #ff8c42;
-            font-size: 1.6rem;
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            color: #34495e;
-        }
-
-        .about-image {
-            position: relative;
-            text-align: center;
-            background: white;
-            border-radius: 20px;
-            padding: 2rem;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            border: 3px solid rgba(168, 216, 234, 0.3);
-        }
-
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: conic-gradient(from 0deg, transparent, rgba(255, 140, 66, 0.1), transparent);
-            animation: rotate 12s linear infinite;
-            z-index: 0;
-        }
-
-        @keyframes rotate {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        .about-image img {
-            width: 100%;
-            height: 350px;
-            object-fit: cover;
-            border-radius: 15px;
-            position: relative;
-            z-index: 1;
-        }
-
-        /* Contact Section */
-        .contact {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-        }
-
-        .contact-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-        }
-
-        .contact-form {
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-            border-top: 4px solid #ff8c42;
-        }
-
-        .form-group {
-            margin-bottom: 1.8rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.8rem;
-            color: #2c3e50;
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 1rem;
-            border: 2px solid rgba(168, 216, 234, 0.3);
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s ease;
-            background: rgba(255, 255, 255, 0.9);
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: #ff8c42;
-        }
-
-        .contact-info {
-            display: flex;
-            flex-direction: column;
-            gap: 2rem;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 1.5rem;
-            padding: 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .contact-item i {
-            font-size: 2.5rem;
-            color: #ff8c42;
-            width: 60px;
-            text-align: center;
-        }
-
-        .contact-item-content h4 {
-            color: #2c3e50;
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .contact-item-content p {
-            color: #34495e;
-            font-size: 1.1rem;
-            line-height: 1.5;
-        }
-
-        /* Footer */
-        footer {
-            background: rgba(44, 62, 80, 0.95);
-            color: white;
-            text-align: center;
-            padding: 3rem 2rem;
-            backdrop-filter: blur(10px);
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-on-scroll {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .animate-on-scroll.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .menu-toggle {
-                display: block;
-                position: relative;
-                z-index: 1001;
-            }
-
-            .nav-menu {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100vh;
-                background: rgba(255, 255, 255, 0.98);
-                backdrop-filter: blur(15px);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                padding: 2rem;
-                transform: translateX(-100%);
-                transition: transform 0.3s ease;
-                z-index: 1000;
-            }
-
-            .nav-menu.active {
-                transform: translateX(0);
-            }
-
-            .nav-menu li {
-                margin: 1rem 0;
-            }
-
-            .nav-menu a {
-                font-size: 1.3rem;
-                padding: 1rem 2rem;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero-features {
-                flex-direction: column;
-                gap: 1rem;
-            }
-
-            .about-content,
-            .contact-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .about-image {
-                order: -1;
-            }
-
-            .about-image img {
-                height: 250px;
-            }
-
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
-</head>
-
-
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Siguranța Pisicii - Plase de Protecție pentru Ferestre</title>
@@ -1289,7 +666,7 @@
         <nav>
             <a href="#" class="logo">
                 <i class="fas fa-cat"></i>
-                Siguranța Pisicii mew mew
+                Siguranța Pisicii mew mew ham ham
             </a>
             <ul class="nav-menu" id="nav-menu">
                 <li><a href="#home">Acasă</a></li>
@@ -1341,30 +718,48 @@
         </div>
         
         <div class="hero-content">
-            <h1>Siguranta Pisicii Tale - Prioritatea Noastra</h1>
-            <p>Plase de protectie premium pentru ferestre - liniste și siguranta pentru tine și familia ta blanoasa</p>
-            <a href="#products" class="cta-button">Descopera Produsele</a>
+            <h1>Siguranța Pisicii Tale - Prioritatea Noastră</h1>
+            <p>Plase de protecție premium pentru ferestre - liniște și siguranță pentru tine și familia ta blănoasă</p>
+            <a href="#products" class="cta-button">Descoperă Produsele</a>
         </div>
     </section>
 
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-            <h2 class="animate-on-scroll">De ce Siguranta Pisicii?</h2>
+            <h2 class="animate-on-scroll">De ce Siguranța Pisicii?</h2>
             <div class="about-content">
                 <div class="about-text animate-on-scroll">
-                    <h3>Pasiunea noastra pentru siguranta pisicilor</h3>
-                    <p>La Siguranta Pisicii, intelegem ca pisicile tale sunt familia ta. De aceea oferim cele mai sigure si durabile plase de protectie pentru ferestre, special proiectate pentru a preveni accidentele si a-ti mentine pisicile in siguranta.</p>
-                    <p>In acest scop am dezvoltat solutii inovatoare care combina siguranta maxima cu estetica placuta, astfel incat sa nu compromitem designul apartamentului sau casei tale. Astfel ca, rama si balamalele pot fi de culoare alba sau maro, in functie de culoarea ferestrelor.</p>
-                    <p>Intregul ansamblu: rama + plasa otel + plasa insecte poate fi mobil (cu deschidere spre exterior) sau fix, dupa cum preferati. Pretul este acelasi pentru ambele variante. Putem securiza eficient atat ferestrele termopan cat si usile de balcon din PVC, singura conditie fiind sa nu fie montate rulouri 
-                        (obloane sau plase insecte rulou).</p>
-                    <p>Toate plasele noastre sunt testate riguros si vin cu garantie pentru linistea ta completa.</p>
+                    <h3>Pasiunea noastră pentru siguranța pisicilor</h3>
+                    <p>La Siguranța Pisicii, înțelegem că pisicile tale sunt familia ta. De aceea oferim cele mai sigure și durabile plase de protecție pentru ferestre, special proiectate pentru a preveni accidentele și a-ți menține pisicile în siguranță.</p>
+                    <p>Cu peste 5 ani de experiență în domeniu, am dezvoltat soluții inovatoare care combină siguranța maximă cu estetica plăcută, astfel încât să nu compromitem designul casei tale.</p>
+                    <p>Toate plasele noastre sunt testate riguros și vin cu garanție extinsă, pentru liniștea ta completă. Echipa noastră de specialiști lucrează constant pentru a îmbunătăți produsele și a oferi cele mai bune soluții pentru protejarea animalelor de companie.</p>
                 </div>
                 <div class="about-image animate-on-scroll">
                     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300'%3E%3Cdefs%3E%3ClinearGradient id='window' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23e3f2fd'/%3E%3Cstop offset='100%25' stop-color='%23f8f9fa'/%3E%3C/linearGradient%3E%3ClinearGradient id='cat' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23ff8a65'/%3E%3Cstop offset='100%25' stop-color='%23ff7043'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='400' height='300' fill='url(%23window)'/%3E%3C!-- Room interior --%3E%3Crect x='0' y='200' width='400' height='100' fill='%23f5f5f5'/%3E%3Crect x='30' y='40' width='340' height='160' fill='%23ffffff' stroke='%23ddd' stroke-width='2' rx='8'/%3E%3C!-- Window frame --%3E%3Crect x='40' y='50' width='320' height='140' fill='rgba(135,206,235,0.3)' rx='5'/%3E%3Cline x1='200' y1='50' x2='200' y2='190' stroke='%23ddd' stroke-width='2'/%3E%3Cline x1='40' y1='120' x2='360' y2='120' stroke='%23ddd' stroke-width='2'/%3E%3C!-- Safety net (subtle) --%3E%3Cg opacity='0.4'%3E%3Cdefs%3E%3Cpattern id='net' x='0' y='0' width='15' height='15' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0,0 L15,0 M0,0 L0,15' stroke='%23667eea' stroke-width='0.5' fill='none'/%3E%3C/pattern%3E%3C/defs%3E%3Crect x='45' y='55' width='310' height='130' fill='url(%23net)'/%3E%3C/g%3E%3C!-- Happy cat inside --%3E%3Cg transform='translate(120,140)'%3E%3C!-- Cat body --%3E%3Cellipse cx='0' cy='10' rx='20' ry='15' fill='url(%23cat)'/%3E%3C!-- Cat head --%3E%3Ccircle cx='0' cy='-5' r='12' fill='url(%23cat)'/%3E%3C!-- Ears --%3E%3Cpath d='M-8,-12 L-12,-20 L-4,-16 Z' fill='url(%23cat)'/%3E%3Cpath d='M8,-12 L12,-20 L4,-16 Z' fill='url(%23cat)'/%3E%3Cpath d='M-8,-15 L-6,-17 L-6,-14 Z' fill='%23ffab91'/%3E%3Cpath d='M8,-15 L6,-17 L6,-14 Z' fill='%23ffab91'/%3E%3C!-- Eyes (happy) --%3E%3Cpath d='M-5,-8 Q-3,-6 -1,-8' stroke='%23333' stroke-width='2' fill='none'/%3E%3Cpath d='M5,-8 Q3,-6 1,-8' stroke='%23333' stroke-width='2' fill='none'/%3E%3C!-- Nose --%3E%3Cpath d='M-1,-3 L0,-1 L1,-3 Q0,-4 -1,-3' fill='%23ff5722'/%3E%3C!-- Mouth (happy) --%3E%3Cpath d='M0,0 Q-3,3 -6,2 M0,0 Q3,3 6,2' stroke='%23333' stroke-width='1.5' fill='none'/%3E%3C!-- Tail --%3E%3Cpath d='M15,5 Q25,0 30,10 Q28,15 25,12' stroke='url(%23cat)' stroke-width='4' fill='none'/%3E%3C/g%3E%3C!-- Decorative plants on windowsill --%3E%3Cg transform='translate(60,180)'%3E%3Crect x='0' y='0' width='15' height='12' fill='%238d6e63' rx='2'/%3E%3Cellipse cx='7' cy='-5' rx='6' ry='8' fill='%2366bb6a'/%3E%3Cellipse cx='4' cy='-8' rx='3' ry='5' fill='%234caf50'/%3E%3Cellipse cx='10' cy='-7' rx='3' ry='6' fill='%234caf50'/%3E%3C/g%3E%3Cg transform='translate(320,185)'%3E%3Crect x='0' y='0' width='12' height='10' fill='%238d6e63' rx='2'/%3E%3Cellipse cx='6' cy='-4' rx='5' ry='7' fill='%2366bb6a'/%3E%3Cellipse cx='3' cy='-7' rx='2' ry='4' fill='%234caf50'/%3E%3Cellipse cx='9' cy='-6' rx='2' ry='5' fill='%234caf50'/%3E%3C/g%3E%3C!-- Safety checkmark --%3E%3Ccircle cx='320' cy='80' r='15' fill='%2327ae60'/%3E%3Cpath d='M313,80 L318,85 L327,76' stroke='white' stroke-width='3' fill='none'/%3E%3C/svg%3E" alt="Pisică fericită și în siguranță la fereastră cu plasă de protecție">
                 </div>
             </div>
-          
+
+            <!-- Statistics -->
+            <div class="about-stats animate-on-scroll">
+                <div class="stat-card">
+                    <div class="stat-number">1000+</div>
+                    <div class="stat-label">Pisici Protejate</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Familii Mulțumite</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">5</div>
+                    <div class="stat-label">Ani Experiență</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">99%</div>
+                    <div class="stat-label">Satisfacție Clienți</div>
+                </div>
+            </div>
+        </div>
     </section>
 
     <!-- Products Section -->
@@ -1376,10 +771,9 @@
                     <div class="product-icon">
                         <i class="fas fa-window-maximize"></i>
                     </div>
-                    <h3>Plasa Fereastra Standard (fixa/mobila)</h3>
+                    <h3>Plasă Standard</h3>
                     <p>Plasă rezistentă din fibră de sticlă, perfectă pentru ferestre obișnuite. Instalare simplă, durabilitate garantată.</p>
-                    <p>Include: luare masuri, realizare plasa personalizata, montaj profesional la domiciliu</p>
-                    <div class="price">550 RON</div>
+                    <div class="price">89 RON</div>
                     <button class="buy-button" onclick="addToCart('standard', 'Plasă Standard', 89)">Adaugă în Coș</button>
                 </div>
 
@@ -1387,10 +781,9 @@
                     <div class="product-icon">
                         <i class="fas fa-medal"></i>
                     </div>
-                    <h3>Plasa Usa Balcon Standard</h3>
-                    <p>Plasă ultra-rezistentă cu tehnologie anti-zgâriere. Ideală pentru pisici mai active.</p>
-                    <p>Include: luare masuri, realizare plasa personalizata, montaj profesional la domiciliu</p>
-                    <div class="price">750 RON</div>
+                    <h3>Plasă Premium</h3>
+                    <p>Plasă ultra-rezistentă cu tehnologie anti-zgâriere și UV-rezistentă. Ideală pentru pisici mai active.</p>
+                    <div class="price">149 RON</div>
                     <button class="buy-button" onclick="addToCart('premium', 'Plasă Premium', 149)">Adaugă în Coș</button>
                 </div>
 
@@ -1398,12 +791,21 @@
                     <div class="product-icon">
                         <i class="fas fa-eye-slash"></i>
                     </div>
-                    <h3>Plasa Fereastra /Usa Balcon Non-Standard</h3>
+                    <h3>Plasă Invizibilă</h3>
                     <p>Tehnologie de vârf cu material ultra-fin, aproape invizibil. Protecție maximă fără a afecta vederea.</p>
-                    <p>Include: luare masuri, realizare plasa personalizata, montaj profesional la domiciliu</p>
-                    <div class="price">900 RON</div>
+                    <div class="price">199 RON</div>
                     <button class="buy-button" onclick="addToCart('invisible', 'Plasă Invizibilă', 199)">Adaugă în Coș</button>
-                </div>   
+                </div>
+
+                <div class="product-card animate-on-scroll" data-product='{"name": "Kit Instalare", "price": 45, "id": "kit"}'>
+                    <div class="product-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Kit de Instalare</h3>
+                    <p>Set complet cu toate uneltele și accesoriile necesare pentru montajul profesional al plasei.</p>
+                    <div class="price">45 RON</div>
+                    <button class="buy-button" onclick="addToCart('kit', 'Kit Instalare', 45)">Adaugă în Coș</button>
+                </div>
             </div>
         </div>
     </section>
@@ -1444,7 +846,7 @@
             <div class="contact-content">
                 <form class="contact-form animate-on-scroll" id="contact-form">
                     <div class="form-group">
-                        <label for="name">Numele tau</label>
+                        <label for="name">Numele tău</label>
                         <input type="text" id="name" name="name" required>
                     </div>
                     <div class="form-group">
@@ -1456,7 +858,7 @@
                         <input type="tel" id="phone" name="phone">
                     </div>
                     <div class="form-group">
-                        <label for="message">Mesajul tau</label>
+                        <label for="message">Mesajul tău</label>
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
                     <button type="submit" class="cta-button" style="width: 100%;">Trimite Mesajul</button>
@@ -1467,8 +869,7 @@
                         <i class="fas fa-phone"></i>
                         <div>
                             <h4>Telefon</h4>
-                            <p>0723 897 867</p>
-                            <p>0729 996 605</p>
+                            <p>0721 123 456</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -1489,7 +890,7 @@
                         <i class="fas fa-clock"></i>
                         <div>
                             <h4>Program</h4>
-                            <p>Lun-Vin: 12:00-20:00<br>Sam: 13:00-17:00</p>
+                            <p>Lun-Vin: 9:00-18:00<br>Sâm: 10:00-14:00</p>
                         </div>
                     </div>
                 </div>
@@ -1500,19 +901,8 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <p>&copy; Date companie</p>
-              <p>CUI: 52362119</p>
-             <p>Adresa: Calea Vacaresti 234, bl 83, apt 35, 4, Bucuresti</p>
-        </div>
-        <div class="container">
-            <p>&copy; Contact</p>
-              <p>)723 897 8679</p>
-             <p>contact@sigurantapisicii.ro</p>
-        </div>
-               <div class="container">
-            <p>&copy; Termeni si conditii</p>
-              <p>ANPC (https://anpc.ro/)</p>
-             <p>SOL (https://europa.eu/youreurope/business/dealing-with-customers/solving-disputes/alternative-dispute-resolution/index_ro.htm)</p>
+            <p>&copy; 2024 Siguranța Pisicii. Toate drepturile rezervate.</p>
+            <p>Protejăm pisicile cu dragoste și profesionalism din 2019</p>
         </div>
     </footer>
 
