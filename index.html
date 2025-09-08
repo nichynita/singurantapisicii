@@ -55,7 +55,7 @@
             font-size: 1.8rem;
             font-weight: bold;
             text-decoration: none;
-            color: #4a90e2;
+            color:  #2c3e50;
         }
 
         .logo i {
@@ -452,7 +452,15 @@
             padding: 2rem;
             backdrop-filter: blur(10px);
         }
+/*de vazut daca trebuie scos sau lasat*/
+        
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 equal columns */
+    gap: 20px;
+}
 
+        
         /* Animations */
         @keyframes fadeInUp {
             from {
@@ -483,7 +491,13 @@
                 position: relative;
                 z-index: 1001;
             }
-
+/* Responsive columns */
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+            
             .nav-menu {
                 position: fixed;
                 top: 0;
@@ -649,12 +663,15 @@
                     
                     <p>Toate plasele noastre sunt testate riguros si vin cu garantie de <strong>2 ani</strong> pentru linistea ta completa.</p>
                 </div>
+
                 
                 <div class="about-images animate-on-scroll">
                     <div class="about-image">
-                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Cdefs%3E%3ClinearGradient id='window1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23e3f2fd'/%3E%3Cstop offset='100%25' stop-color='%23ffffff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='300' height='200' fill='url(%23window1)'/%3E%3Crect x='20' y='20' width='260' height='160' fill='%23ffffff' stroke='%23ddd' stroke-width='2' rx='10'/%3E%3Crect x='30' y='30' width='240' height='140' fill='rgba(135,206,235,0.3)' rx='5'/%3E%3Cg opacity='0.6'%3E%3Cdefs%3E%3Cpattern id='net1' x='0' y='0' width='10' height='10' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0,0 L10,0 M0,0 L0,10' stroke='%234a90e2' stroke-width='0.5' fill='none'/%3E%3C/pattern%3E%3C/defs%3E%3Crect x='35' y='35' width='230' height='130' fill='url(%23net1)'/%3E%3C/g%3E%3Cg transform='translate(150,100)'%3E%3Cellipse cx='0' cy='5' rx='15' ry='12' fill='%23ff7043'/%3E%3Ccircle cx='0' cy='-5' r='10' fill='%23ff7043'/%3E%3Cpath d='M-6,-10 L-9,-16 L-3,-13 Z' fill='%23ff7043'/%3E%3Cpath d='M6,-10 L9,-16 L3,-13 Z' fill='%23ff7043'/%3E%3Cpath d='M-3,-8 Q-1,-6 1,-8' stroke='%23333' stroke-width='1.5' fill='none'/%3E%3Cpath d='M3,-8 Q1,-6 -1,-8' stroke='%23333' stroke-width='1.5' fill='none'/%3E%3Cpath d='M-1,-3 L0,-1 L1,-3' fill='%23d32f2f'/%3E%3C/g%3E%3C/svg%3E" alt="Plasa montata pe fereastra">
-                        <div class="about-image-caption">Plasa fereastra montata</div>
+                        <img src="C:\Users\A55144406\OneDrive - Deutsche Telekom AG\Desktop\CaTs\Poze\Bella1.jpeg" alt="Responsive image" style="max-width: 100%; height: auto;">
+                        <div class="about-image-caption">Plasa montata la fereastra</div>
                     </div>
+
+
                     
                     <div class="about-image">
                         <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Cdefs%3E%3ClinearGradient id='door1' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%23f1f8e9'/%3E%3Cstop offset='100%25' stop-color='%23ffffff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='300' height='200' fill='url(%23door1)'/%3E%3Crect x='50' y='10' width='200' height='180' fill='%23ffffff' stroke='%23ddd' stroke-width='2' rx='5'/%3E%3Crect x='60' y='20' width='180' height='160' fill='rgba(129,199,132,0.3)' rx='3'/%3E%3Cg opacity='0.6'%3E%3Cdefs%3E%3Cpattern id='net2' x='0' y='0' width='12' height='12' patternUnits='userSpaceOnUse'%3E%3Cpath d='M0,0 L12,0 M0,0 L0,12' stroke='%234caf50' stroke-width='0.5' fill='none'/%3E%3C/pattern%3E%3C/defs%3E%3Crect x='65' y='25' width='170' height='150' fill='url(%23net2)'/%3E%3C/g%3E%3Cg transform='translate(150,120)'%3E%3Cellipse cx='0' cy='8' rx='18' ry='15' fill='%23795548'/%3E%3Ccircle cx='0' cy='-8' r='12' fill='%23795548'/%3E%3Cpath d='M-8,-15 L-12,-22 L-4,-18 Z' fill='%23795548'/%3E%3Cpath d='M8,-15 L12,-22 L4,-18 Z' fill='%23795548'/%3E%3Cpath d='M-4,-10 Q-2,-8 0,-10' stroke='%23333' stroke-width='1.5' fill='none'/%3E%3Cpath d='M4,-10 Q2,-8 0,-10' stroke='%23333' stroke-width='1.5' fill='none'/%3E%3C/g%3E%3C/svg%3E" alt="Plasa usa balcon">
@@ -727,6 +744,8 @@
 
     <!-- Footer -->
     <footer>
+        <div class="grid-container">
+            
         <div class="footer-content">
             <div class="footer-column">
                 <h4>Date companie</h4>
@@ -747,6 +766,8 @@
                 <a href="#">ANPC & SOL</a>
                 <a href="#">Politica returnare</a>
             </div>
+        </div>
+            
         </div>
         
         <div class="footer-bottom">
