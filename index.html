@@ -382,6 +382,140 @@
             font-weight: 500;
         }
 
+        /* Lightbox styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            text-align: center;
+        }
+
+        .lightbox-image {
+            max-width: 100%;
+            max-height: 80vh;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+        }
+
+        .lightbox-caption {
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            color: white;
+            font-size: 35px;
+            font-weight: bold;
+            cursor: pointer;
+            background: rgba(0,0,0,0.5);
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            padding: 15px 20px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        .lightbox-prev {
+            left: -80px;
+        }
+
+        .lightbox-next {
+            right: -80px;
+        }
+
+        .lightbox-counter {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 16px;
+            background: rgba(0,0,0,0.5);
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .lightbox-nav {
+                font-size: 20px;
+                padding: 12px 16px;
+            }
+
+            .lightbox-prev {
+                left: 10px;
+            }
+
+            .lightbox-next {
+                right: 10px;
+            }
+
+            .lightbox-close {
+                top: 10px;
+                right: 10px;
+            }
+
+            .lightbox-counter {
+                bottom: 10px;
+            }
+        }
+
         /* Contact Section */
         .contact-content {
             display: grid;
@@ -666,6 +800,10 @@
                 padding: 1rem;
             }
         }
+
+        .hide {
+            display:none;
+        }
     </style>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
@@ -680,6 +818,17 @@
     </script>
 </head>
 <body>
+<!-- Lightbox Modal -->
+<div class="lightbox" id="lightbox">
+    <div class="lightbox-content">
+        <button class="lightbox-close" id="lightbox-close">&times;</button>
+        <button class="lightbox-nav lightbox-prev" id="lightbox-prev">&#8249;</button>
+        <button class="lightbox-nav lightbox-next" id="lightbox-next">&#8250;</button>
+        <img class="lightbox-image" id="lightbox-image" src="" alt="">
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+        <div class="lightbox-counter" id="lightbox-counter"></div>
+    </div>
+</div>
 <!-- Header -->
 <header id="header">
     <nav>
@@ -787,22 +936,31 @@
                 <p>Toate plasele noastre sunt testate riguros si vin cu garantie de <strong>2 ani</strong> pentru linistea ta completa.</p>
             </div>
             <div class="about-images">
-                <div class="about-image">
+                <div class="about-image" data-image="photos/Bella1.jpeg" data-caption="Plasa montata la fereastra">
                     <img src="photos/Bella1.jpeg" alt="Plasa montata la fereastra" loading="lazy" style="max-width: 100%; height: auto;">
                     <div class="about-image-caption">Plasa montata la fereastra</div>
                 </div>
-                <div class="about-image">
+                <div class="about-image" data-image="photos/Murphy1.jpeg" data-caption="Plasa rezistenta">
                     <img src="photos/Murphy1.jpeg" alt="Plasa rezistenta" loading="lazy" style="max-width: 100%; height: auto;">
                     <div class="about-image-caption">Plasa rezistenta</div>
                 </div>
-                <div class="about-image">
+                <div class="about-image" data-image="photos/Murphy2.jpeg" data-caption="Pisica fericita si protejata">
                     <img src="photos/Murphy2.jpeg" alt="Pisica fericita si protejata" loading="lazy" style="max-width: 100%; height: auto;">
                     <div class="about-image-caption">Pisica fericita si protejata</div>
                 </div>
-                <div class="about-image">
+                <div class="about-image" data-image="photos/P1.jpeg" data-caption="Montaj profesional">
                     <img src="photos/P1.jpeg" alt="Montaj profesional" loading="lazy" style="max-width: 100%; height: auto;">
                     <div class="about-image-caption">Montaj profesional</div>
                 </div>
+                <div class="about-image hide" data-image="photos/Pisi3.jpeg" data-caption="Montaj profesional">
+                    <img src="photos/Pisi3.jpeg" alt="Montaj profesional" loading="lazy" style="max-width: 100%; height: auto;">
+                    <div class="about-image-caption">Montaj profesional</div>
+                </div>
+                <div class="about-image hide" data-image="photos/Pisi4.jpeg" data-caption="Montaj profesional">
+                    <img src="photos/Pisi4.jpeg" alt="Montaj profesional" loading="lazy" style="max-width: 100%; height: auto;">
+                    <div class="about-image-caption">Montaj profesional</div>
+                </div>
+
             </div>
         </div>
     </div>
@@ -915,6 +1073,102 @@
             menuToggle.setAttribute('aria-expanded', 'false');
         });
     });
+
+    class LightboxGallery {
+            constructor() {
+                this.images = [];
+                this.currentIndex = 0;
+                this.lightbox = document.getElementById('lightbox');
+                this.lightboxImage = document.getElementById('lightbox-image');
+                this.lightboxCaption = document.getElementById('lightbox-caption');
+                this.lightboxCounter = document.getElementById('lightbox-counter');
+
+                this.init();
+            }
+
+            init() {
+                const imageElements = document.querySelectorAll('.about-image');
+
+                imageElements.forEach((element, index) => {
+                    const img = element.querySelector('img');
+                    const caption = element.getAttribute('data-caption') || element.querySelector('.about-image-caption').textContent;
+                    const fullImageSrc = element.getAttribute('data-image') || img.src;
+
+                    this.images.push({
+                        src: fullImageSrc,
+                        caption: caption,
+                        element: element
+                    });
+
+                    element.addEventListener('click', () => {
+                        this.openLightbox(index);
+                    });
+                });
+
+                // Event listeners
+                document.getElementById('lightbox-close').addEventListener('click', () => this.closeLightbox());
+                document.getElementById('lightbox-prev').addEventListener('click', () => this.prevImage());
+                document.getElementById('lightbox-next').addEventListener('click', () => this.nextImage());
+
+                this.lightbox.addEventListener('click', (e) => {
+                    if (e.target === this.lightbox) {
+                        this.closeLightbox();
+                    }
+                });
+
+                // Keyboard navigation
+                document.addEventListener('keydown', (e) => {
+                    if (!this.lightbox.classList.contains('active')) return;
+
+                    switch(e.key) {
+                        case 'ArrowLeft':
+                            this.prevImage();
+                            break;
+                        case 'ArrowRight':
+                            this.nextImage();
+                            break;
+                        case 'Escape':
+                            this.closeLightbox();
+                            break;
+                    }
+                });
+            }
+
+            openLightbox(index) {
+                this.currentIndex = index;
+                this.updateLightboxContent();
+                this.lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+
+            closeLightbox() {
+                this.lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+
+            nextImage() {
+                this.currentIndex = (this.currentIndex + 1) % this.images.length;
+                this.updateLightboxContent();
+            }
+
+            prevImage() {
+                this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+                this.updateLightboxContent();
+            }
+
+            updateLightboxContent() {
+                const currentImage = this.images[this.currentIndex];
+
+                this.lightboxImage.src = currentImage.src;
+                this.lightboxImage.alt = currentImage.caption;
+                this.lightboxCaption.textContent = currentImage.caption;
+                this.lightboxCounter.textContent = `${this.currentIndex + 1} / ${this.images.length}`;
+            }
+        }
+
+document.addEventListener('DOMContentLoaded', () => {
+            new LightboxGallery();
+        });
 
     // Contact form
     const contactForm = document.getElementById('contact-form');
