@@ -1340,5 +1340,27 @@
         });
     });
 </script>
+<!-- Cookie Consent Banner -->
+<div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(44,62,80,0.95); color: white; padding: 1rem; display: flex; justify-content: space-between; align-items: center; z-index: 9999; flex-wrap: wrap;">
+    <span>Acest site folosește cookie-uri pentru a-ti oferi o experienta mai buna. Continuand navigarea, esti de acord cu folosirea cookie-urilor.</span>
+    <button id="accept-cookies" style="margin-left: 1rem; padding: 0.5rem 1rem; border: none; border-radius: 5px; background: #ff5722; color: white; cursor: pointer;">Accept</button>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const banner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('accept-cookies');
+
+        // Check if cookies were already accepted
+        if(localStorage.getItem('cookiesAccepted') === 'true') {
+            banner.style.display = 'none';
+        }
+
+        // Accept button click
+        acceptBtn.addEventListener('click', function() {
+            localStorage.setItem('cookiesAccepted', 'true');
+            banner.style.display = 'none';
+        });
+    });
+</script>
 </body>
 </html>
