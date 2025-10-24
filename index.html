@@ -148,14 +148,16 @@
         }
 
         .hero-content::before {
-            content: '🐱';
+            content: '';
             position: absolute;
-            top: -35px;
+            top: -25px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 5rem;
+            width: 6rem;
+            height: 6rem;
             filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
             animation: bounce 2s ease-in-out infinite;
+            background: url('emoji/cat.svg') no-repeat center/contain;
         }
 
         @keyframes bounce {
@@ -888,6 +890,13 @@
         .hide {
             display:none;
         }
+
+        .cat1 { background: url('emoji/cat-happy.svg') no-repeat center/contain; }
+        .cat2 { background: url('emoji/cat-smile.svg') no-repeat center/contain; }
+        .cat3 { background: url('emoji/cat-love.svg')  no-repeat center/contain; }
+        .cat4 { background: url('emoji/cat-wow.svg')   no-repeat center/contain; }
+        .cat5 { background: url('emoji/cat-lol.svg')   no-repeat center/contain; }
+
     </style>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
@@ -935,11 +944,11 @@
 <!-- Hero Section -->
 <section class="hero" id="home">
     <div class="floating-cats" aria-hidden="true">
-        <div class="floating-cat">🐱</div>
-        <div class="floating-cat">😺</div>
-        <div class="floating-cat">😸</div>
-        <div class="floating-cat">😻</div>
-        <div class="floating-cat">🙀</div>
+        <div class="floating-cat cat1">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div class="floating-cat cat2">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div class="floating-cat cat3">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div class="floating-cat cat4">&nbsp;&nbsp;&nbsp;&nbsp;</div>
+        <div class="floating-cat cat5">&nbsp;&nbsp;&nbsp;&nbsp;</div>
     </div>
     <div class="hero-content">
         <h1>Siguranta Pisicii Tale - Prioritatea Noastra</h1>
