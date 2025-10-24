@@ -147,6 +147,22 @@
             overflow: hidden;
         }
 
+        .hero-content::before {
+            content: '🐱';
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 5rem;
+            filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.2));
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
         /* Floating cats animation */
         .floating-cats {
             position: absolute;
@@ -224,10 +240,14 @@
         }
 
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+        background-clip: text;
+            margin-bottom: 1.5rem;
+            margin-top: 3rem;
+            line-height: 1.2;
+            font-weight: 800;
+            letter-spacing: -1px;
+            font-size: 3rem;
             color: #2c3e50;
-            font-weight: 700;
         }
 
         .hero p {
@@ -235,6 +255,25 @@
             margin-bottom: 2rem;
             opacity: 0.8;
             line-height: 1.6;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: #555;
+            margin: 2rem 0 1.5rem 0;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .benefits-list {
+            list-style: none;
+            padding: 0;
+            margin: 2.5rem auto;
+            text-align: center;
+            max-width: 550px;
+            display: flex;
+            flex-direction: column;
+            gap: 1.2rem;
         }
 
         .cta-button {
@@ -283,25 +322,35 @@
         /* Products Section */
         .products-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
+            grid-template-columns: repeat(2, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
+
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
 
         .product-card {
             background: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
             padding: 2rem;
             text-align: center;
+            align-items: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             border: 2px solid rgba(74, 144, 226, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
         .product-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-            border-color: #4a90e2;
         }
 
         .product-icon {
@@ -311,20 +360,16 @@
         }
 
         .product-card h3 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-bottom: 1rem;
             color: #2c3e50;
-        }
-
-        .product-card p, .product-card ul {
-            margin-bottom: 1.5rem;
-            color: #555;
-            text-align: left;
         }
 
         .product-card ul {
             list-style: none;
             padding-left: 0;
+            margin-bottom: 1rem;
+            text-align: left;
         }
 
         .product-card li {
@@ -744,6 +789,7 @@
             .cta-button {
                 padding: 0.8rem 2rem;
                 font-size: 1rem;
+                border-radius: 5px;
             }
 
             section {
@@ -821,6 +867,7 @@
             .cta-button {
                 padding: 0.7rem 1.5rem;
                 font-size: 0.9rem;
+                border-radius: 20px !important;
             }
 
             h2 {
@@ -890,11 +937,16 @@
     </div>
     <div class="hero-content">
         <h1>Siguranta Pisicii Tale - Prioritatea Noastra</h1>
-        <p><strong>Oferim plase personalizate pentru geamuri si usi, cu scop dublu:</strong></p>
-        <div style="text-align: left; margin: 2rem 0; font-size: 1.1rem;">
-            <p>✓ <strong>Protectie pentru pisici</strong> (plase ranforsate sau metalice, anti-evadare)</p>
-            <p>✓ <strong>Protectie anti-insecte</strong></p>
-        </div>
+        <p class="hero-subtitle"><strong>Oferim plase personalizate pentru geamuri si usi, cu scop dublu:</strong></p>
+        <ul class="benefits-list">
+            <li>
+                <span style="color: #4caf50;font-weight: bold; padding: 0 0.5rem;">✓</span><strong>Protectie pentru pisici</strong><br>
+                (plase ranforsate sau metalice, anti-evadare)
+            </li>
+            <li>
+                <span style="color: #4caf50;font-weight: bold; padding: 0 0.5rem;">✓</span><strong>Protectie anti-insecte</strong>
+            </li>
+        </ul>
         <a href="#contact" class="cta-button">Solicita Oferta</a>
     </div>
 </section>
@@ -938,77 +990,81 @@
 </section>
 
 <!-- Products Section -->
+<!-- Products Section -->
 <section class="products" id="products">
     <div class="container">
-        <h2>Produse / Servicii / Preturi</h2>
+        <h2>Produse si Servicii</h2>
+
         <div class="products-grid">
+            <!-- Product Card 1 -->
             <div class="product-card">
-                <div class="product-icon">
-                    <i class="fas fa-window-maximize"></i>
-                </div>
+                <div class="product-icon"><i class="fas fa-window-maximize"></i></div>
                 <h3>Plasa Fereastra Uzuala (fixa/mobila)</h3>
                 <ul>
                     <li>Luare masuri la fata locului</li>
-                    <li>Realizare de rame personalizate</li>
-                    <li>Montaj profesional la domiciliu</li>
-                    <li>Dimensiuni de interior comune (fara rame): 55cm-65cm / 100cm-110cm </li>
+                    <li>Realizare rame personalizate</li>
+                    <li>Montaj profesional</li>
+                    <li>Dimensiuni comune: 55-65 cm / 100-110 cm</li>
                 </ul>
-                <div class="price">550 LEI</div>
+                <div class="price">550 RON</div>
+                <a href="#contact" class="cta-button">Solicita oferta</a>
             </div>
+
+            <!-- Product Card 2 -->
             <div class="product-card">
-                <div class="product-icon">
-                    <i class="fas fa-door-open"></i>
-                </div>
+                <div class="product-icon"><i class="fas fa-door-open"></i></div>
                 <h3>Plasa Usa Balcon Uzuala (fixa/mobila)</h3>
                 <ul>
                     <li>Luare masuri la fata locului</li>
-                    <li>Realizare de rame personalizate</li>
-                    <li>Montaj profesional la domiciliu</li>
-                    <li>Dimensiuni de interior comune (fara rame): 50cm-60cm / 170cm-180cm </li>
+                    <li>Realizare rame personalizate</li>
+                    <li>Montaj profesional</li>
+                    <li>Dimensiuni comune: 50-60 cm / 170-180 cm</li>
                 </ul>
-                <div class="price">750 LEI</div>
-            </div>
-            <div class="product-card">
-                <div class="product-icon">
-                    <i class="fas fa-table"></i>
-                </div>
-                <h3>Plasa Fereastra/Usa Balcon Non-Standard</h3>
-                <ul>
-                    <li>Luare masuri la fata locului</li>
-                    <li>Realizare de rame personalizate</li>
-                    <li>Montaj profesional la domiciliu</li>
-                </ul>
-                <div class="price-note">Pret diferit in functie de marimi</div>
-                <div class="price">La cerere</div>
+                <div class="price">750 RON</div>
+                <a href="#contact" class="cta-button">Solicita oferta</a>
             </div>
 
- <div class="product-card">
-                <div class="product-icon">
-                    <i class="fas fa-window-maximize"></i>
-                </div>
+            <!-- Product Card 3 -->
+            <div class="product-card">
+                <div class="product-icon"><i class="fas fa-table"></i></div>
+                <h3>Plasa Fereastra / Usa Balcon Non-Standard</h3>
+                <ul>
+                    <li>Luare masuri la fata locului</li>
+                    <li>Realizare rame personalizate</li>
+                    <li>Montaj profesional</li>
+                </ul>
+                <div class="price-note">Pret diferit în functie de dimensiuni</div>
+                <div class="price">La cerere</div>
+                <a href="#contact" class="cta-button">Solicita oferta</a>
+            </div>
+
+            <!-- Product Card 4 -->
+            <div class="product-card">
+                <div class="product-icon"><i class="fas fa-window-maximize"></i></div>
                 <h3>Plasa Anti-insecte Simpla (fixa/mobila)</h3>
                 <ul>
                     <li>Luare masuri la fata locului</li>
-                    <li>Realizare de rame personalizate</li>
-                    <li>Montaj profesional la domiciliu</li>
+                    <li>Realizare rame personalizate</li>
+                    <li>Montaj profesional</li>
                 </ul>
-                <div class="price">300 LEI</div>
+                <div class="price">300 RON</div>
+                <a href="#contact" class="cta-button">Solicita oferta</a>
             </div>
-
-            
-            
         </div>
-        <div style="margin-top: 3rem; padding: 2rem; background: rgba(255, 193, 7, 0.1); border-radius: 15px; border-left: 5px solid #ffc107;">
-            <h3 style="color: #2c3e50; margin-bottom: 1rem;">Conditii de colaborare:</h3>
+
+        <!-- Info / Conditions -->
+        <div class="info-box" style="margin-top:3rem; padding:2rem; background:rgba(255,193,7,0.1); border-left:5px solid #ffc107; border-radius:10px;">
+            <h3>Conditii de colaborare</h3>
             <p><strong>Se adreseaza proprietarilor de animale din Bucuresti si Ilfov.</strong></p>
             <p>Ca sa putem incepe colaborarea, avem nevoie de:</p>
-            <ul style="margin: 1rem 0; padding-left: 2rem;">
+            <ul>
                 <li>Un avans de <strong>50%</strong> din suma totala (platibil prin transfer bancar)</li>
-                <li>Confirmarea ta ca esti de acord cu termenii si conditiile pe care ii gasesti pe site-ul nostru</li>
+                <li>Confirmarea ca esti de acord cu termenii si conditiile</li>
             </ul>
         </div>
     </div>
 </section>
+
 
 <!-- Contact Section -->
 <section class="contact" id="contact">
@@ -1342,7 +1398,7 @@
 </script>
 <!-- Cookie Consent Banner -->
 <div id="cookie-banner" style="position: fixed; bottom: 0; left: 0; width: 100%; background: rgba(44,62,80,0.95); color: white; padding: 1rem; display: flex; justify-content: space-between; align-items: center; z-index: 9999; flex-wrap: wrap;">
-    <span>Acest site folosește cookie-uri pentru a-ti oferi o experienta mai buna. Continuand navigarea, esti de acord cu folosirea cookie-urilor.</span>
+    <span>Acest site foloseste cookie-uri pentru a-ti oferi o experienta mai buna. Continuand navigarea, esti de acord cu folosirea cookie-urilor.</span>
     <button id="accept-cookies" style="margin-left: 1rem; padding: 0.5rem 1rem; border: none; border-radius: 5px; background: #ff5722; color: white; cursor: pointer;">Accept</button>
 </div>
 <script>
