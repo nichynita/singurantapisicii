@@ -253,10 +253,9 @@
         }
 
         .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
+            font-size: 1.1rem;
             opacity: 0.8;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
         .hero-subtitle {
@@ -367,20 +366,20 @@
             color: #2c3e50;
         }
 
-        .product-card ul {
+        .product-card ul, .custom-list {
             list-style: none;
             padding-left: 0;
             margin-bottom: 1rem;
             text-align: left;
         }
 
-        .product-card li {
+        .product-card li, .custom-list li{
             padding: 0.3rem 0;
             position: relative;
             padding-left: 1.5rem;
         }
 
-        .product-card li:before {
+        .product-card li:before, .custom-list li:before{
             content: '✓';
             color: #4caf50;
             font-weight: bold;
@@ -903,6 +902,8 @@
         .cat4 { background: url('emoji/cat-wow.svg')   no-repeat center/contain; }
         .cat5 { background: url('emoji/cat-lol.svg')   no-repeat center/contain; }
 
+        .medium { font-size: 1rem; }
+
     </style>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script type="text/javascript">
@@ -961,12 +962,12 @@
         <p class="hero-subtitle"><strong>Oferim plase personalizate pentru geamuri si usi, adaptate nevoilor tale:</strong></p>
         <ul class="benefits-list">
             <li>
-                <span style="color: #4caf50;font-weight: bold; padding: 0 0.5rem;">✓</span><strong>Protectie sigura pentru pisici</strong><br>
-                <p>Plase personalizate pentru ferestre si usi, realizate plecand de la structura unei plase de tantari, dar adaptate si consolidate pentru rezistenta superioara:</p><br>
+                <span style="color: #4caf50;font-weight: bold; padding: 0 0.5rem;">✓</span><strong>Protectie sigura pentru pisici</strong>
+                <p class="medium">Plase personalizate pentru ferestre si usi, realizate plecand de la structura unei plase de tantari, dar adaptate si consolidate pentru rezistenta superioara:</p><br>
             </li>
             <li>
-                <span style="color: #4caf50;font-weight: bold; padding: 0 0.5rem;">✓</span><strong>Protectie eficientă impotriva insectelor</strong><br>
-                <p>Mentinem functionalitatea plasei de tantari, oferind in acelasi timp durabilitate sporita.</p>
+                <span style="color: #4caf50;font-weight: bold; padding: 0 0.5rem;">✓</span><strong>Protectie eficientă impotriva insectelor</strong>
+                <p class="medium">Mentinem functionalitatea plasei de tantari, oferind in acelasi timp durabilitate sporita.</p>
             </li>
         </ul>
         <a href="#contact" class="cta-button">Solicita Oferta</a>
@@ -984,14 +985,16 @@
                 <p>Cunosti situatia: esti in bucatarie, gatesti, vrei sa aerisesti, dar te temi ca mica ta aventuriera sa nu fie atrasa de zgomote, pasari sau miscari din exterior. Nu esti singurul care traieste cu aceasta grija – iar exact de aici a pornit proiectul nostru.</p>
                 <p>Pornind de la plasa clasica de insecte, care nu este suficient de rezistenta pentru energia si curiozitatea pisicilor, am dezvoltat o versiune mult imbunatatita. Plasa noastra este proiectata sa sustina greutatea si impulsul felinei, fiind creata din materiale durabile si completate de un sistem de prindere inovator, robust si estetic, inlocuind clemele fragile din plastic.</p>
                 <p><strong>Avantajele plasei de protectie pentru pisici:</strong></p>
-                <p>   ·Rezistenta superioara, adaptata comportamentului felinelor;<br>
-                   ·Sistem de prindere modern si elegant, conceput pentru stabilitate;<br>
-                    ·Compatibilitate cu ferestre termopan si usi de balcon din PVC;<br>       
-                   ·Montaj discret, fara a afecta designul locuintei;<br>
-                   ·Garantie 1 an, pentru confort si siguranta pe termen lung.</p>
+                <ul class="custom-list">
+                    <li>Rezistenta superioara, adaptata comportamentului felinelor;</li>
+                    <li>Sistem de prindere modern si elegant, conceput pentru stabilitate;</li>
+                    <li>Compatibilitate cu ferestre termopan si usi de balcon din PVC;</li>
+                    <li>Montaj discret, fara a afecta designul locuintei;</li>
+                    <li>Garantie 1 an, pentru confort si siguranta pe termen lung.</li>
+                </ul>
                <p>Singura conditie de montaj este absenta rulourilor exterioare sau a plaselor de insecte tip rulou.</p>
-               
-                
+
+
             </div>
             <div class="about-images">
                 <div class="about-image" data-image="photos/photo1.png" data-caption="As vrea o plasa sigura si rezistenta… .">
